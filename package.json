@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "test": "echo \"No tests yet\" && exit 0"
-},
-
+    "test": "jest",
+    "start": "node index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aj-sys/Nodejs-Github-Actions.git"
@@ -17,5 +17,8 @@
     "url": "https://github.com/aj-sys/Nodejs-Github-Actions/issues"
   },
   "homepage": "https://github.com/aj-sys/Nodejs-Github-Actions#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
 }

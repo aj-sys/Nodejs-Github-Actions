@@ -1,6 +1,4 @@
-# .github/workflows/nodejs.yml
-
-name: Setup Node.js Env
+name: Node.js CI
 
 on:
   push:
@@ -9,13 +7,25 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version:  21
-        cache: 'npm'
-    - run: npm install
-    - run: npm run build --if-present
-    - run: npm test
+      # 1️⃣ Checkout code
+      - uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node.js
+      - name: Use Node.js 21
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21
+
+      # 3️⃣ Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 4️⃣ Run your Node.js script
+      - name: Run index.js
+        run: npm start
+
+      # 5️⃣ Run tests
+      - name: Run tests
+        run: npm test
